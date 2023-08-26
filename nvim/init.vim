@@ -20,6 +20,7 @@ if has('nvim')
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'Tsuzat/NeoSolarized.nvim', { 'branch': 'master' }
 endif
 call plug#end()
 
@@ -43,6 +44,10 @@ syntax enable
 set t_Co=256
 set background=dark
 colorscheme gruvbox
+"colorscheme NeoSolarized
+" always leave the diagnostics gutter open
+set signcolumn=yes
+highlight signcolumn none
 
 " Syntastic settings
 let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
@@ -67,6 +72,7 @@ if has('nvim')
 " LSP and CMP
   luafile ~/.config/nvim/cmp_config.lua
   luafile ~/.config/nvim/ts_config.lua
+  "luafile ~/.config/nvim/solarized_config.lua
 endif
 
 " vim-go
@@ -88,9 +94,11 @@ let g:go_fmt_command = "goimports"
 " Status line types/signatures
 let g:go_auto_type_info = 1
 
+"au filetype go inoremap <buffer> . .<C-x><C-o>
+
 " Run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
-\ let l:file = expand('%')
+  let l:file = expand('%')
   if l:file =~# '^\f\+_test\.go$'
     call go#test#Test(0, 1)
   elseif l:file =~# '^\f\+\.go$'
@@ -106,9 +114,14 @@ autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
 " Mappings
 map <tab> :NERDTreeToggle<cr>
+map <leader>T :TagbarOpenAutoClose<cr>
 map <C-n> :tabnext<cr>
 map <C-p> :tabprev<cr>
-"
+map <leader>s :mks!<cr>
+map <leader>I :IndentLinesToggle<cr>
+map <leader>F :copen<CR>
+map <leader>f :cclose<CR>
+
 " Clean up whitespace (https://idie.ru/posts/vim-modern-cpp#removing-trailing-whitespaces)
 highlight ExtraWhitespace ctermbg=white guibg=red
 match ExtraWhitespace /\s\+$/
@@ -125,10 +138,11 @@ autocmd BufReadPost *
   \ | endif
 
 " NERDTree config
+"let NERDTreeMapOpenInTab='<ENTER>'
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 let NERDTreeQuitOnOpen=0
 
-" Fix debugger layout
+" Make the debugger not suck
 let g:go_debug_windows = {
       \ 'vars':       'rightbelow 60vnew',
       \ 'stack':      'rightbelow 10new',
