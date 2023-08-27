@@ -70,6 +70,7 @@ let g:airline_powerline_fonts = 1
 
 if has('nvim')
 " LSP and CMP
+  luafile ~/.config/nvim/random.lua
   luafile ~/.config/nvim/cmp_config.lua
   luafile ~/.config/nvim/ts_config.lua
   "luafile ~/.config/nvim/solarized_config.lua
@@ -121,6 +122,12 @@ map <leader>s :mks!<cr>
 map <leader>I :IndentLinesToggle<cr>
 map <leader>F :copen<CR>
 map <leader>f :cclose<CR>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Clean up whitespace (https://idie.ru/posts/vim-modern-cpp#removing-trailing-whitespaces)
 highlight ExtraWhitespace ctermbg=white guibg=red
