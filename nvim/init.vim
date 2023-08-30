@@ -42,8 +42,10 @@ set modeline
 " Colors
 syntax enable
 set t_Co=256
+let g:gruvbox_contrast_dark='hard'
 set background=dark
 colorscheme gruvbox
+hi Normal guibg=NONE ctermbg=NONE
 "colorscheme NeoSolarized
 " always leave the diagnostics gutter open
 set signcolumn=yes
@@ -154,3 +156,7 @@ let g:go_debug_windows = {
       \ 'vars':       'rightbelow 60vnew',
       \ 'stack':      'rightbelow 10new',
 \ }
+
+let g:go_term_enabled = 1
+let g:go_term_mode = "silent keepalt rightbelow 15 split"
+let g:go_def_reuse_buffer = 1
