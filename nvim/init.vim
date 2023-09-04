@@ -17,7 +17,7 @@ if has('nvim')
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
+  Plug 'nvim-telescope/telescope.nvim', { 'branch': 'master' }
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'Tsuzat/NeoSolarized.nvim', { 'branch': 'master' }
@@ -38,6 +38,7 @@ set completeopt=longest,menuone
 
 set wildmenu " Show completions in status.
 set modeline
+set rnu
 
 " Colors
 syntax enable
@@ -75,6 +76,7 @@ if has('nvim')
   luafile ~/.config/nvim/random.lua
   luafile ~/.config/nvim/cmp_config.lua
   luafile ~/.config/nvim/ts_config.lua
+  luafile ~/.config/nvim/telescope_config.lua
   "luafile ~/.config/nvim/solarized_config.lua
 endif
 
