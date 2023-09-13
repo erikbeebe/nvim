@@ -133,6 +133,9 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+" Un-break Y 
+nnoremap Y Y
+
 " Clean up whitespace (https://idie.ru/posts/vim-modern-cpp#removing-trailing-whitespaces)
 highlight ExtraWhitespace ctermbg=white guibg=red
 match ExtraWhitespace /\s\+$/
@@ -162,3 +165,11 @@ let g:go_debug_windows = {
 let g:go_term_enabled = 1
 let g:go_term_mode = "silent keepalt rightbelow 15 split"
 let g:go_def_reuse_buffer = 1
+
+" https://www.reddit.com/r/neovim/comments/f0qx2y/automatically_reload_file_if_contents_changed/
+" trigger `autoread` when files changes on disk
+set autoread
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" notification after file change
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None

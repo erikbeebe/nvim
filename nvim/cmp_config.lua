@@ -60,4 +60,8 @@ cmp.setup.cmdline(':', {
   })
 })
 
-require'lspconfig'.gopls.setup{}
+require'lspconfig'.gopls.setup{
+  cmd = { "/home/erik/go/bin/gopls" }
+}
+
+require'lspconfig'.clangd.setup{}
