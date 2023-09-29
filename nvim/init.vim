@@ -3,7 +3,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rhysd/vim-clang-format'
-Plug 'gruvbox-community/gruvbox'
 Plug 'airblade/vim-gitgutter'
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
@@ -20,7 +19,7 @@ if has('nvim')
   Plug 'nvim-telescope/telescope.nvim', { 'branch': 'master' }
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'Tsuzat/NeoSolarized.nvim', { 'branch': 'master' }
+  Plug 'folke/tokyonight.nvim'
 endif
 call plug#end()
 
@@ -43,11 +42,10 @@ set rnu
 " Colors
 syntax enable
 set t_Co=256
-let g:gruvbox_contrast_dark='hard'
 set background=dark
-colorscheme gruvbox
-hi Normal guibg=NONE ctermbg=NONE
-"colorscheme NeoSolarized
+colorscheme tokyonight-moon
+" hi Normal guibg=NONE ctermbg=NONE
+
 " always leave the diagnostics gutter open
 set signcolumn=yes
 highlight signcolumn none
@@ -62,12 +60,6 @@ let g:syntastic_check_on_wq = 0
 " cscope settings
 let g:cscope_silent = 1
 
-" autocomplete
-let g:deoplete#enable_at_startup = 1
-
-" IndentLines settings
-let g:indentLine_enabled = 1
-
 " Airline settings
 let g:airline_powerline_fonts = 1
 
@@ -77,7 +69,7 @@ if has('nvim')
   luafile ~/.config/nvim/cmp_config.lua
   luafile ~/.config/nvim/ts_config.lua
   luafile ~/.config/nvim/telescope_config.lua
-  "luafile ~/.config/nvim/solarized_config.lua
+  luafile ~/.config/nvim/lsp_config.lua
 endif
 
 " vim-go
@@ -133,7 +125,7 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" Un-break Y 
+" Revert yank behavior back to regular vim
 nnoremap Y Y
 
 " Clean up whitespace (https://idie.ru/posts/vim-modern-cpp#removing-trailing-whitespaces)
@@ -152,7 +144,7 @@ autocmd BufReadPost *
   \ | endif
 
 " NERDTree config
-"let NERDTreeMapOpenInTab='<ENTER>'
+let NERDTreeMapOpenInTab='<ENTER>'
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 let NERDTreeQuitOnOpen=0
 
