@@ -1,5 +1,8 @@
+local homedir = vim.loop.os_getenv("HOME")
+local gopls_path = (homedir .. "/go/bin/gopls")
+
 require'lspconfig'.gopls.setup{
-  cmd = {"/home/erik/go/bin/gopls", "serve"},
+  cmd = {gopls_path, "serve"},
   settings = {
     gopls = {
       analyses = {
