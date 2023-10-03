@@ -5,6 +5,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rhysd/vim-clang-format'
 Plug 'airblade/vim-gitgutter'
 if has('nvim')
+  Plug 'f-person/git-blame.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'glepnir/lspsaga.nvim'
   Plug 'hrsh7th/cmp-nvim-lsp'
