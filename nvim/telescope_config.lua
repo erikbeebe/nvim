@@ -7,7 +7,8 @@ require('telescope').setup{
           }, -- n
           i = {
             ["<C-h>"] = "which_key",
-            ['<c-d>'] = require('telescope.actions').delete_buffer
+            ['<c-d>'] = require('telescope.actions').delete_buffer,
+            ["<CR>"] = "select_tab"
           } -- i
         }, --mappings
   },
