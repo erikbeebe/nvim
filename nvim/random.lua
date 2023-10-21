@@ -9,5 +9,8 @@ function toggle_linenumbers()
     vim.o.number = not vim.o.number
 end
 
--- vim.keymap.set('n', '<Leader>nn', toggle_linenumbers())
 vim.keymap.set('n', '<Leader>nn', '<cmd>lua toggle_linenumbers()<cr>')
+
+-- clangd helpers
+vim.keymap.set('n', '<Leader>K', vim.lsp.buf.hover)
+vim.keymap.set('n', '<Leader><C-k>', vim.lsp.buf.signature_help)
