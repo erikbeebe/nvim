@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rhysd/vim-clang-format'
@@ -23,6 +22,8 @@ if has('nvim')
   Plug 'folke/tokyonight.nvim'
   Plug 'nvim-tree/nvim-web-devicons'
   Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+  Plug 'nvim-tree/nvim-tree.lua'
+  Plug 'nvim-tree/nvim-web-devicons'
 endif
 call plug#end()
 
@@ -66,6 +67,7 @@ if has('nvim')
   luafile ~/.config/nvim/telescope_config.lua
   luafile ~/.config/nvim/lsp_config.lua
   luafile ~/.config/nvim/bufferline.lua
+  luafile ~/.config/nvim/nvimtree.lua
 endif
 
 " vim-go
@@ -106,8 +108,8 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
 " Mappings
-map <tab> :NERDTreeFind<cr>
-map <leader><tab> :NERDTreeToggle<cr>
+map <tab> :NvimTreeFindFileToggle<cr>
+map <leader><tab> :NvimTreeToggle<cr>
 map <C-n> :bnext<cr>
 map <C-p> :bprev<cr>
 map <leader>s :mks!<cr>
