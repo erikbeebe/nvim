@@ -14,3 +14,14 @@ tmux (3.2+) settings to fix colors:
 set -g default-terminal "xterm-256color"
 set -ag terminal-overrides ",xterm-256color:Tc"
 ```
+
+(Linux) The icons require the Hack Nerd fonts available from https://www.nerdfonts.com/font-downloads.
+
+- Install the ttf fonts in ~/.fonts
+- Then run:
+
+```
+fc-cache -fv
+```
+
+- If you're using gnome-terminal, be sure to restart gnome-terminal-server after updating the font cache.
