@@ -47,18 +47,10 @@ syntax enable
 set t_Co=256
 set background=dark
 colorscheme tokyonight-moon
-" hi Normal guibg=NONE ctermbg=NONE
 
 " always leave the diagnostics gutter open
 set signcolumn=yes
 highlight signcolumn none
-
-" Syntastic settings
-let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
 
 " cscope settings
 let g:cscope_silent = 1
@@ -148,8 +140,6 @@ autocmd BufReadPost *
   \ | endif
 
 " NERDTree config
-let NERDTreeMapOpenInTab='<ENTER>'
-let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 let NERDTreeQuitOnOpen=0
 
 " Make the debugger not suck
