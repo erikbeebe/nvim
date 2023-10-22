@@ -21,6 +21,8 @@ if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'folke/tokyonight.nvim'
+  Plug 'nvim-tree/nvim-web-devicons'
+  Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 endif
 call plug#end()
 
@@ -71,6 +73,7 @@ if has('nvim')
   luafile ~/.config/nvim/ts_config.lua
   luafile ~/.config/nvim/telescope_config.lua
   luafile ~/.config/nvim/lsp_config.lua
+  luafile ~/.config/nvim/bufferline.lua
 endif
 
 " vim-go
@@ -111,10 +114,10 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
 " Mappings
-map <tab> :NERDTreeToggle<cr>
-map <leader>T :TagbarOpenAutoClose<cr>
-map <C-n> :tabnext<cr>
-map <C-p> :tabprev<cr>
+map <tab> :NERDTreeFind<cr>
+map <leader><tab> :NERDTreeToggle<cr>
+map <C-n> :bnext<cr>
+map <C-p> :bprev<cr>
 map <leader>s :mks!<cr>
 map <leader>I :IndentLinesToggle<cr>
 map <leader>F :copen<CR>
