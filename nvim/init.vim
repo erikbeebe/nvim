@@ -35,6 +35,7 @@ set cindent
 set belloff=all
 set number
 set guicursor=n-v-c-i:block
+set expandtab
 
 " Make autocompletion work like an IDE
 set completeopt=longest,menuone
