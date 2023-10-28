@@ -1,8 +1,13 @@
 -- bufferline
 vim.opt.termguicolors = true
 
-require("bufferline").setup{
+local bufferline = require("bufferline")
+bufferline.setup{
   options = {
-    diagnostics = "nvim_lsp"
+    diagnostics = "nvim_lsp",
+    style_preset = {
+        bufferline.style_preset.no_italic,
+        bufferline.style_preset.no_bold
+    }
   }
 }
