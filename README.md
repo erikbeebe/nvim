@@ -25,3 +25,12 @@ fc-cache -fv
 ```
 
 - If you're using gnome-terminal, be sure to restart gnome-terminal-server after updating the font cache.
+
+# Debugger
+
+nvim-dap assumes that lldb is installed, and provides the `lldb-vscode-14` binary.  In ubuntu 22.04, this is
+provided by the `lldb` package.
+
+```
+apt-get install lldb
+```
