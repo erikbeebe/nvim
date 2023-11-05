@@ -8,12 +8,16 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
+## Tmux
+
 tmux (3.2+) settings to fix colors:
 
 ```
 set -g default-terminal "xterm-256color"
 set -ag terminal-overrides ",xterm-256color:Tc"
 ```
+
+## Fonts
 
 (Linux) The icons require the Hack Nerd fonts available from https://www.nerdfonts.com/font-downloads.
 
@@ -26,7 +30,7 @@ fc-cache -fv
 
 - If you're using gnome-terminal, be sure to restart gnome-terminal-server after updating the font cache.
 
-# Debugger
+## Debugger
 
 nvim-dap assumes that lldb is installed, and provides the `lldb-vscode-14` binary.  In ubuntu 22.04, this is
 provided by the `lldb` package.
