@@ -24,6 +24,8 @@ if has('nvim')
   Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
   Plug 'nvim-tree/nvim-tree.lua'
   Plug 'nvim-tree/nvim-web-devicons'
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'rcarriga/nvim-dap-ui'
 endif
 call plug#end()
 
@@ -69,6 +71,7 @@ if has('nvim')
   luafile ~/.config/nvim/lsp_config.lua
   luafile ~/.config/nvim/bufferline.lua
   luafile ~/.config/nvim/nvimtree.lua
+  luafile ~/.config/nvim/debugger_config.lua
 endif
 
 " vim-go
@@ -123,6 +126,11 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <Leader>fo <cmd>Telescope oldfiles<cr>
+nnoremap <Leader>fc <cmd>Telescope commands<cr>
+nnoremap <Leader>fj <cmd>Telescope jumplist<cr>
+nnoremap <Leader>fk <cmd>Telescope keymaps<cr>
+nnoremap <Leader>fm <cmd>Telescope marks<cr>
 
 " Revert yank behavior back to regular vim
 nnoremap Y Y
