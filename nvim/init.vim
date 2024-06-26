@@ -26,6 +26,7 @@ if has('nvim')
   Plug 'nvim-tree/nvim-web-devicons'
   Plug 'mfussenegger/nvim-dap'
   Plug 'rcarriga/nvim-dap-ui'
+  Plug 'nvim-neotest/nvim-nio'
 endif
 call plug#end()
 
